@@ -4,7 +4,7 @@ const requests = () => {
   let objectOfTabsToStop = {}
   chrome.webRequest.onBeforeRequest.addListener(
     (details) => {
-      if (!/^https:\/\/(lichess\.org|lichess\.dev|mskchess\.ru)\/(\w{8}|\w{12})(\/white|\/black)?$/.test(details.url)) return;
+      if (!/^https:\/\/(playstrategy\.org|lichess\.dev|mskchess\.ru)\/(\w{8}|\w{12})(\/white|\/black)?$/.test(details.url)) return;
       let tabId = details.tabId;
       let debuggeeId = { tabId: tabId };
       if (objectOfTabsToStop[tabId] && objectOfTabsToStop[tabId].debugger === true) {
